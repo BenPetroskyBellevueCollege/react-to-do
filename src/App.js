@@ -16,7 +16,7 @@ class App extends Component {
       {
         id: 2,
         title:'Work on React',
-        completed: false
+        completed: true
       
       },
       {

@@ -2,27 +2,27 @@ import React, {Component} from 'react';
 import Header from './components/layout/Header';
 import Todos from './components/Todos';
 import AddTodo from './components/AddTodo';
+import nextId from 'react-id-generator';
 import './App.css';
-import { render } from '@testing-library/react';
 
 
 class App extends Component {
   state = {
     todos: [
       {
-        id: 1,
+        id: nextId(),
         title:'Take out trash',
         completed: false
       
       },
       {
-        id: 2,
+        id: nextId(),
         title:'Work on React',
         completed: false
       
       },
       {
-        id: 3,
+        id: nextId(),
         title:'Apply to internships',
         completed: false
       
@@ -47,6 +47,16 @@ delTodo = (id) => {
   this.setState({todos: [...this.state.todos.filter(todo => todo.id !== id)]});
 }
 
+//Add Todo
+addTodo = (title) => {
+  const newTodo = {
+    id: nextId(),
+    title,
+    completed: false
+  }
+  this.setState({ todos: [...this.state.todos, newTodo]})
+} 
+
 
 
   render(){
@@ -56,7 +66,7 @@ delTodo = (id) => {
       <div className="App">
         <div className="container">
         <Header />
-        <AddTodo />
+        <AddTodo addTodo={this.addTodo}/>
    
         <Todos todos = {this.state.todos} 
         markComplete={this.markComplete}

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Header from './components/layout/Header';
 import Todos from './components/Todos';
+import AddTodo from './components/AddTodo';
 import './App.css';
 import { render } from '@testing-library/react';
 
@@ -53,12 +54,17 @@ delTodo = (id) => {
     return (
 
       <div className="App">
-
+        <div className="container">
         <Header />
+        <AddTodo />
    
         <Todos todos = {this.state.todos} 
         markComplete={this.markComplete}
         delTodo={this.delTodo}/>
+
+        </div>
+
+
       </div>
     );
 

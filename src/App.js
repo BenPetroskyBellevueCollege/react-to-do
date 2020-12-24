@@ -16,7 +16,7 @@ class App extends Component {
       {
         id: 2,
         title:'Work on React',
-        completed: true
+        completed: false
       
       },
       {
@@ -27,9 +27,18 @@ class App extends Component {
       }
     ]
   }
-  
+
+
+  // toggles complete from true to false for each todo
   markComplete = (id) => {
-    console.log(id)
+    this.setState({ todos: this.state.todos.map(todo =>{
+      if(todo.id === id){
+        todo.completed = !todo.completed
+      }
+      console.log(id +", completed:" + todo.completed)
+      return todo;
+    })})
+
 }
 
 

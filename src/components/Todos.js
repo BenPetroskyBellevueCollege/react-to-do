@@ -3,9 +3,7 @@ import TodoItem from './TodoItem';
 import PropTypes from 'prop-types';
 
 class Todos extends Component {
-    markComplete = () => {
-        console.log('You checked the box')
-    }
+
 
     render(){
       
